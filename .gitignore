@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.idea/
+venv/
+smartcoop_python_sdk.egg-info/
+example.py
+get-pip.py
+build/
+dist/
