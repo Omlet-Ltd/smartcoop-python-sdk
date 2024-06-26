@@ -19,8 +19,8 @@ class Omlet:
         return device
 
     def perform_action(self, action: Action) -> None:
-        endpoint = action.url
-        self.client.post(endpoint)    
+        endpoint = action.url.lstrip('/')
+        self.client.post(endpoint)
 
     def update_configuration(self, device_id: str, configuration: Configuration) -> None:
         endpoint = f'device/{device_id}/configuration'
@@ -30,7 +30,7 @@ class Omlet:
         endpoint = 'group/'
         response = self.client.get(endpoint)
         groups = [Group.from_json(group_json) for group_json in response]
-        return groups    
+        return groups
 
     def get_group_by_id(self, id) -> Group:
         endpoint = f'group/{id}'
@@ -43,7 +43,7 @@ class Omlet:
         payload = {'groupName': name}
         response = self.client.post(endpoint, payload)
         group = Group.from_json(response)
-        return group    
+        return group
 
     def get_user(self) -> User:
         endpoint = 'whoami/'
@@ -53,11 +53,11 @@ class Omlet:
 
     def accept_invite(self, group: GroupSubset) -> None:
         endpoint = f'invite/{group.groupId}'
-        self.client.post(endpoint)    
+        self.client.post(endpoint)
 
     def reject_invite(self, group: GroupSubset) -> None:
         endpoint = f'invite/{group.groupId}'
-        self.client.delete(endpoint)       
+        self.client.delete(endpoint)
 
     def update_group_name(self, group_id: str, group_name: str) -> None:
         endpoint = f'group/{group_id}'
@@ -81,4 +81,4 @@ class Omlet:
     def update_user_access(self, group_id: str, email_address: str, access: str) -> None:
         endpoint = f'group/{group_id}/user'
         payload = {'emailAddress': email_address, 'access': access}
-        self.client.patch(endpoint, json=payload)       
+        self.client.patch(endpoint, json=payload)
