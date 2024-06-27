@@ -29,9 +29,11 @@ class SmartCoopClient:
         url = f'{self.base_url}/{endpoint}'
         headers = self._get_headers()
         response = requests.patch(url, headers=headers, json=json)
-    
+        response.raise_for_status()
+
 
     def delete(self, endpoint):
         url = f'{self.base_url}/{endpoint}'
         headers = self._get_headers()
         response = requests.delete(url, headers=headers)
+        response.raise_for_status()

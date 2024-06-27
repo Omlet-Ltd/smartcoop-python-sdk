@@ -7,7 +7,7 @@ class Omlet:
         self.client = client
 
     def get_devices(self) -> List[Device]:
-        endpoint = 'device/'
+        endpoint = 'device'
         response = self.client.get(endpoint)
         devices = [Device.from_json(device_json) for device_json in response]
         return devices
@@ -27,7 +27,7 @@ class Omlet:
         self.client.patch(endpoint, json=configuration.to_json())
 
     def get_groups(self) -> List[Group]:
-        endpoint = 'group/'
+        endpoint = 'group'
         response = self.client.get(endpoint)
         groups = [Group.from_json(group_json) for group_json in response]
         return groups
@@ -46,7 +46,7 @@ class Omlet:
         return group
 
     def get_user(self) -> User:
-        endpoint = 'whoami/'
+        endpoint = 'whoami'
         response = self.client.get(endpoint)
         user = User.from_json(response)
         return user
