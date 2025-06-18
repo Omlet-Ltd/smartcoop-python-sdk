@@ -5,10 +5,12 @@ from typing import Any
 class StateConnectivity:
     ssid: str
     wifiStrength: str
+    connected: bool
 
     @staticmethod
     def from_json(json_data: Any) -> 'StateConnectivity':
         return StateConnectivity(
             ssid=json_data['ssid'],
-            wifiStrength=json_data['wifiStrength']
+            wifiStrength=json_data['wifiStrength'],
+            connected=json_data['connected']
         )
