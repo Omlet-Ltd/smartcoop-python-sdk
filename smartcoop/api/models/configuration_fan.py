@@ -45,21 +45,21 @@ class ConfigurationFan:
 
     def to_json(self) -> dict:
         return {
-            "mode" => self.mode,
-            "manualSpeed" => self.manualSpeed,
-            "timeOn1" => self.timeOn1,
-            "timeOn2" => self.timeOn2,
-            "timeOn3" => self.timeOn3,
-            "timeOn4" => self.timeOn4,
-            "timeOff1" => self.timeOff1,
-            "timeOff2" => self.timeOff2,
-            "timeOff3" => self.timeOff3,
-            "timeOff4" => self.timeOff4,
-            "timeSpeed1" => self.timeSpeed1,
-            "timeSpeed2" => self.timeSpeed2,
-            "timeSpeed3" => self.timeSpeed3,
-            "timeSpeed4" => self.timeSpeed4,
-            "tempOn" => self.tempOn,
-            "tempOff" => self.tempOff,
-            "tempSpeed" => self.tempSpeed
+            "mode": self.mode,
+            "manualSpeed": self.manualSpeed,
+            "timeOn1": self.timeOn1,
+            "timeOn2": self.timeOn2,
+            "timeOn3": self.timeOn3,
+            "timeOn4": self.timeOn4,
+            "timeOff1": self.timeOff1,
+            "timeOff2": self.timeOff2,
+            "timeOff3": self.timeOff3,
+            "timeOff4": self.timeOff4,
+            "timeSpeed1": self.timeSpeed1,
+            "timeSpeed2": self.timeSpeed2,
+            "timeSpeed3": self.timeSpeed3,
+            "timeSpeed4": self.timeSpeed4,
+            "tempOn": self.tempOn,
+            "tempOff": self.tempOff,
+            "tempSpeed": self.tempSpeed
         }
