@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='smartcoop-python-sdk',
-    version='1.1.0',
+    name='smartcoop_python_sdk',
+    version='1.1.1',
     packages=find_packages(),
     install_requires=[
         'requests',
