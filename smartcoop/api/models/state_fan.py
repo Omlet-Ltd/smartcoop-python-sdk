@@ -8,8 +8,8 @@ class StateFan:
     humidity: int
 
     @staticmethod
-    def from_json(json_data: Any) -> 'StateFeeder':
-        return StateFeeder(
+    def from_json(json_data: Any) -> 'StateFan':
+        return StateFan(
             state = json_data['state'],
             temperature = json_data['temperature'],
             humidity = json_data['humidity']
