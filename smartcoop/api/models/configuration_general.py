@@ -28,7 +28,7 @@ class ConfigurationGeneral:
             overnightSleepEnd=json_data['overnightSleepEnd'] if json_data.get('overnightSleepEnd') else None,
             pollFreq=json_data['pollFreq'] if json_data.get('pollFreq') else None,
             stayAliveTime=json_data['stayAliveTime'] if json_data.get('stayAliveTime') else None,
-            statusUpdatePeriod=json_data['statusUpdatePeriod']
+            statusUpdatePeriod=json_data['statusUpdatePeriod'],
             useDst=json_data['useDst'] if json_data.get('language') else None
         )
 
