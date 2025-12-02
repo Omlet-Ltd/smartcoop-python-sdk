@@ -6,7 +6,7 @@ class StateGeneral:
     firmwareVersionCurrent: str
     firmwareVersionPrevious: str
     firmwareLastCheck: str
-    batteryLevel: int
+    batteryLevel: Optional[int] = None
     powerSource: str
     uptime: int
     displayLine1: Optional[str] = None
