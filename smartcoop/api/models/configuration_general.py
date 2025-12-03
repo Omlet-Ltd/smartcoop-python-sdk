@@ -20,7 +20,6 @@ class ConfigurationGeneral:
         return ConfigurationGeneral(
             datetime=json_data['datetime'],
             timezone=json_data['timezone'],
-            useDst=json_data.get('useDst'),
             updateFrequency=json_data['updateFrequency'],
             language=json_data['language'] if json_data.get('language') else None,
             overnightSleepEnable=json_data['overnightSleepEnable'] if json_data.get('overnightSleepEnable') else None,
@@ -29,14 +28,13 @@ class ConfigurationGeneral:
             pollFreq=json_data['pollFreq'] if json_data.get('pollFreq') else None,
             stayAliveTime=json_data['stayAliveTime'] if json_data.get('stayAliveTime') else None,
             statusUpdatePeriod=json_data['statusUpdatePeriod'],
-            useDst=json_data['useDst'] if json_data.get('language') else None
+            useDst=json_data['useDst'] if json_data.get('useDst') else None
         )
 
     def to_json(self) -> dict:
         return {
             "datetime": self.datetime,
             "timezone": self.timezone,
-            "useDst": self.useDst,
             "updateFrequency": self.updateFrequency,
             "language": self.language,
             "overnightSleepEnable": self.overnightSleepEnable,
