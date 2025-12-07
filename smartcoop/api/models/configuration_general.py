@@ -6,13 +6,13 @@ class ConfigurationGeneral:
     datetime: str
     timezone: str
     updateFrequency: int
+    statusUpdatePeriod: int
     language: Optional[str] = None
     overnightSleepEnable: Optional[bool] = None
     overnightSleepStart: Optional[str] = None
     overnightSleepEnd: Optional[str] = None
     pollFreq: Optional[int] = None
     stayAliveTime: Optional[int] = None
-    statusUpdatePeriod: int
     useDst: Optional[bool] = None
 
     @staticmethod
