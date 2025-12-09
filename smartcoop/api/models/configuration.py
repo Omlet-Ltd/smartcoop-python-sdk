@@ -28,11 +28,21 @@ class Configuration:
         )
 
     def to_json(self) -> dict:
-        return {
+        data = {
             "general": self.general.to_json(),
             "connectivity": self.connectivity.to_json(),
-            "door": self.door.to_json() if self.door else None,
-            "light": self.light.to_json() if self.light else None,
-            "feeder": self.feeder.to_json() if self.feeder else None,
-            "fan": self.fan.to_json if self.fan else None
         }
+
+        # Only include optional sub-configurations when present, rather than
+        # sending explicit nulls which may not be accepted by the backend.
+        if self.door is not None:
+            data["door"] = self.door.to_json()
+        if self.light is not None:
+            data["light"] = self.light.to_json()
+        if self.feeder is not None:
+            data["feeder"] = self.feeder.to_json()
+        if self.fan is not None:
+            # Note: fan implements to_json(), use the result not the function.
+            data["fan"] = self.fan.to_json()
+
+        return data

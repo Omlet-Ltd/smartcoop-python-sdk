@@ -32,16 +32,28 @@ class ConfigurationGeneral:
         )
 
     def to_json(self) -> dict:
-        return {
+        data = {
             "datetime": self.datetime,
             "timezone": self.timezone,
             "updateFrequency": self.updateFrequency,
-            "stayAliveTime": self.stayAliveTime,
-            "language": self.language,
-            "overnightSleepEnable": self.overnightSleepEnable,
-            "overnightSleepStart": self.overnightSleepStart,
-            "overnightSleepEnd": self.overnightSleepEnd,
-            "pollFreq": self.pollFreq,
             "statusUpdatePeriod": self.statusUpdatePeriod,
-            "useDst": self.useDst
         }
+
+        # Only include optional fields if they are explicitly set, to
+        # avoid sending JSON nulls that some backend versions reject.
+        if self.language is not None:
+            data["language"] = self.language
+        if self.overnightSleepEnable is not None:
+            data["overnightSleepEnable"] = self.overnightSleepEnable
+        if self.overnightSleepStart is not None:
+            data["overnightSleepStart"] = self.overnightSleepStart
+        if self.overnightSleepEnd is not None:
+            data["overnightSleepEnd"] = self.overnightSleepEnd
+        if self.pollFreq is not None:
+            data["pollFreq"] = self.pollFreq
+        if self.stayAliveTime is not None:
+            data["stayAliveTime"] = self.stayAliveTime
+        if self.useDst is not None:
+            data["useDst"] = self.useDst
+
+        return data
