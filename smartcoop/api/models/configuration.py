@@ -34,5 +34,5 @@ class Configuration:
             "door": self.door.to_json() if self.door else None,
             "light": self.light.to_json() if self.light else None,
             "feeder": self.feeder.to_json() if self.feeder else None,
-            "fan": self.fan.to_json if self.fan else None
+            "fan": self.fan.to_json() if self.fan else None
         }
