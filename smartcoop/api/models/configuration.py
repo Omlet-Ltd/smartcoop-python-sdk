@@ -42,7 +42,6 @@ class Configuration:
         if self.feeder is not None:
             data["feeder"] = self.feeder.to_json()
         if self.fan is not None:
-            # Note: fan implements to_json(), use the result not the function.
             data["fan"] = self.fan.to_json()
 
         return data
